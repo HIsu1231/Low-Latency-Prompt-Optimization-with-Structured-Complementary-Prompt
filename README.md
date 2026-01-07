@@ -18,7 +18,9 @@ The main components include:
 Compared with existing generation-based optimization methods, LLPO delivers:
 
 ✅ Comparable or improved response quality
+
 ✅ Up to ~2000× lower optimization latency
+
 ✅ Stable and reproducible system-prompt structure
 
 LLPO is ideal for real-time or latency-sensitive LLM applications, where prompt optimization overhead must remain minimal.
