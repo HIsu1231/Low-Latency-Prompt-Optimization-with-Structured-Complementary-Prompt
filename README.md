@@ -183,13 +183,6 @@ python evaluation/scoring/scoring_gpt.py -a our_data.jsonl -b nonoutdata.jsonl -
 python evaluation/scoring/win_tie_lose.py
 ```
 
-## 🛠️ Supported Models
-
-- **RoBERTa**: `FacebookAI/roberta-large`
-- **DeBERTa**: `microsoft/deberta-v3-large`
-- **ModernBERT**: `answerdotai/ModernBERT-large`
-- Other HuggingFace Transformers compatible models
-
 ## 📝 Citation
 
 If you use this code, please cite:
