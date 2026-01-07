@@ -4,11 +4,11 @@
 [![Paper](https://img.shields.io/badge/Paper-PDF-red)]()
 [![License](https://img.shields.io/badge/License-MIT-green)]()
 
-This repository contains the official implementation of the paper "Don't Generate, Classify" published at **EACL 2026** (18th Conference of the European Chapter of the Association for Computational Linguistics).
+This repository contains the official implementation of the paper "Don’t Generate, Classify! Low-Latency Prompt Optimization with Structured Complementary Prompt" published at **EACL 2026** (19th Conference of the European Chapter of the Association for Computational Linguistics).
 
 ## 📋 Overview
 
-This project implements LLPO (Low Latency Prompt Optimization), a novel approach presented at EACL 2026 that uses classification-based methods instead of generation-based approaches to optimize prompts for language models. By using a fast classifier to identify the appropriate domain/category and then selecting pre-optimized prompts, LLPO achieves significantly lower latency compared to generation-based prompt optimization methods.
+This project implements LLPO (Low Latency Prompt Optimization), a novel approach presented at EACL 2026 that uses classification-based methods instead of generation-based approaches to optimize prompts for language models. By using a classifier to identify the appropriate domain/category and then selecting pre-optimized prompts, LLPO achieves significantly lower latency compared to generation-based prompt optimization methods.
 
 The main components include:
 
@@ -50,49 +50,20 @@ LLPO_github/
 │   └── sh/                              # Execution scripts
 │       ├── optimization/
 │       └── inference/
-└── datasets/                            # Datasets
-    ├── clusters/                        # Clustering results
-    │   ├── final_kmeans/
-    │   └── final_agglomerative/
-    └── SCP/                             # SCP dataset
-        ├── SCP.json
-        ├── minilm_field_embeddings.pkl
-        └── prompts/
+└── prompts/                           
+
 
 ```
 
-## 🚀 Getting Started
+## 🛠️ Environment Setup
 
-### Prerequisites
+Install the required dependencies using pip:
 
-#### Basic Installation (Required for Clustering and Classification)
-```bash
-pip install torch transformers numpy scikit-learn tqdm python-dotenv requests
-```
-
-#### Full Installation (All Features)
 ```bash
 pip install -r requirements.txt
 ```
 
-#### Component-specific Installation
-
-**For OpenAI/Anthropic API evaluation:**
-```bash
-pip install openai anthropic python-dotenv
-```
-
-**For FIPO optimization method:**
-```bash
-pip install vllm
-```
-
-**For specific model tokenizers:**
-```bash
-pip install sentencepiece protobuf
-```
-
-> **Note**: The `requirements.txt` includes all dependencies. Install only what you need based on which components you plan to use.
+## 🚀 Quick Start
 
 ### 1. Field Clustering
 
@@ -179,27 +150,6 @@ Each folder contains:
 - `lookup_table_*.json`: Label conversion table
 - `replaced_label_data_*.json`: Training data with clustered labels applied
 
-## 🔬 Key Features
-
-### 1. Classification-based Low Latency Approach
-Instead of generating prompts through expensive LLM calls, LLPO uses a fast classifier to identify the appropriate prompt template, achieving significantly lower latency.
-
-### 2. Focal Loss for Imbalanced Data
-Implementation of Focal Loss to handle imbalanced class distributions across different domains and categories.
-
-### 3. Multi-task Learning Architecture
-Multi-task architecture that simultaneously learns multiple fields (domains, categories, etc.) to capture inter-field relationships.
-
-### 4. Clustering-based Label Reduction
-- Groups semantically similar labels to reduce the number of classes
-- Automatic selection of optimal cluster count based on silhouette score
-- Maintains semantic information while improving classification efficiency
-
-### 5. Comparison of Various Prompt Optimization Methods
-- **LLPO**: Low Latency Prompt Optimization (proposed method) - Classification-based approach
-- **BPO**: Batch Prompt Optimization - Batch-based generation approach
-- **PAS**: Prompt Augmentation Strategy - Augmentation-based approach
-- **FIPO**: Field-wise Instruction Prompt Optimization - Field-specific generation approach
 
 ## 📈 Evaluation
 
@@ -232,48 +182,3 @@ If you use this code, please cite:
   year={2026}
 }
 ```
-
-## 📄 License
-
-[Please add license information]
-
-## 🤝 Contributing
-
-Bug reports and feature requests are welcome through issues.
-
-## 📧 Contact
-
-For questions or inquiries, please contact [email address].
-
----
-
-## Additional Notes
-
-### Training Tips
-
-1. **GPU Memory**: If you encounter OOM errors, reduce `batch_size` or increase `accumulation_steps`
-2. **Hyperparameter Tuning**: The `gamma` parameter in Focal Loss is crucial for handling class imbalance
-3. **Clustering Quality**: Check silhouette scores to ensure good clustering quality
-4. **Latency Optimization**: Use smaller models (e.g., DistilBERT, MiniLM) for even lower latency if needed
-5. **Model Selection**: RoBERTa and DeBERTa provide better accuracy, while ModernBERT offers a good balance
-
-### File Formats
-
-- All JSON files use UTF-8 encoding
-- Embeddings are stored as pickled NumPy arrays
-- Models are saved in HuggingFace format
-
-### Reproducibility
-
-Set random seeds for reproducibility:
-```python
-import random
-import numpy as np
-import torch
-
-random.seed(42)
-np.random.seed(42)
-torch.manual_seed(42)
-```
-
-This is automatically handled in the training scripts.
