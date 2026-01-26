@@ -5,6 +5,10 @@ This repository contains the official implementation of the paper "Don’t Gener
 
 ## 📋 Overview
 
+
+<img width="6875" height="6237" alt="LLPO_v3" src="https://github.com/user-attachments/assets/2ddda98d-8e8f-49aa-ab2a-f5adef3f8185" />
+
+
 This project implements LLPO (Low Latency Prompt Optimization), a novel approach that uses classification-based methods instead of generation-based approaches to optimize prompts for language models. By using a lightweight classifier to predict the appropriate task/domain category and selecting a pre-optimized structured prompt, LLPO significantly reduces inference latency while maintaining high response quality.
 
 The main components include:
@@ -190,7 +194,7 @@ If you use this code, please cite:
 ```bibtex
 @inproceedings{dont-generate-classify-2026,
   title={Don't Generate, Classify: Low Latency Prompt Optimization},
-  author={[Authors]},
+  author={[Hee-Soo Kim, Jun-Young Kim, Jeong-Hwan Lee, Seong-Jin Park, Kang-Min Kim]},
   booktitle={Proceedings of the 19th Conference of the European Chapter of the Association for Computational Linguistics (EACL)},
   year={2026}
 }
