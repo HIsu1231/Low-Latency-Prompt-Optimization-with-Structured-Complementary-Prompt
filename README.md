@@ -6,7 +6,8 @@ This repository contains the official implementation of the paper "Don’t Gener
 ## 📋 Overview
 
 
-<img width="6875" height="6237" alt="LLPO_v3" src="https://github.com/user-attachments/assets/2ddda98d-8e8f-49aa-ab2a-f5adef3f8185" />
+<img width="1499" height="1361" alt="image" src="https://github.com/user-attachments/assets/b507ddff-2112-4170-969f-6b6467772582" />
+
 
 
 This project implements LLPO (Low Latency Prompt Optimization), a novel approach that uses classification-based methods instead of generation-based approaches to optimize prompts for language models. By using a lightweight classifier to predict the appropriate task/domain category and selecting a pre-optimized structured prompt, LLPO significantly reduces inference latency while maintaining high response quality.
