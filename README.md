@@ -1,6 +1,6 @@
 # Low-Latency-Prompt-Optimization-with-Structured-Complementary-Prompt
 
-
+[EACL 2026]
 This repository contains the official implementation of the paper "Don’t Generate, Classify! Low-Latency Prompt Optimization with Structured Complementary Prompt" published at **EACL 2026** (19th Conference of the European Chapter of the Association for Computational Linguistics).
 
 ## 📋 Overview
